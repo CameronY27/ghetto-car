@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Ghetto Car™</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="badge">🚗 The Ghetto Car™</div>
+      <div class="sub">scan • laugh • choose your fate</div>
+    </header>
+
+    <!-- Screen: Welcome -->
+    <section class="card screen active" data-screen="welcome">
+      <h1>Welcome 😭</h1>
+      <p class="lead">
+        You just unlocked <strong>The Ghetto Car™ experience</strong>.
+        Choose wisely… or don’t.
+      </p>
+
+
+      <div class="info">
+        <p><strong>Why it’s called The Ghetto Car:</strong></p>
+        <ul class="list">
+          <li>The music turns up when I speed and turns down when I slow down.</li>
+          <li>Stuff randomly falls for no reason.</li>
+          <li>I have a check engine light.</li>
+          <li>My tire once read 172 PSI… so we might just blow up.</li>
+          <li>I had no A/C… but now it’s fixed 😎</li>
+        </ul>
+      </div>
+
+      <div class="row">
+        <button class="btn primary" data-next="name">Start</button>
+        <button class="btn ghost" data-next="rules">See Rules</button>
+      </div>
+    </section>
+
+    <!-- Screen: Name -->
+    <section class="card screen" data-screen="name">
+      <h2>Quick check 👀</h2>
+      <p class="lead">What should we call you today?</p>
+
+      <label class="field">
+        <span>Name / Nickname</span>
+        <input id="guestName" type="text" placeholder="" maxlength="24" />
+      </label>
+
+      <div class="row">
+        <button class="btn ghost" data-back="welcome">Back</button>
+        <button class="btn primary" id="toMode">Next</button>
+      </div>
+    </section>
+
+    <!-- Screen: Mode -->
+    <section class="card screen" data-screen="mode">
+      <h2>Pick your mode 🎛️</h2>
+      <p class="lead">This decides the “driving vibe” for the ride.</p>
+
+      <div class="grid">
+        <button class="tile" data-mode="chill">
+          <div class="tileTitle">😌 Chill Mode</div>
+          <div class="tileBody">Respectful turns. Music on medium. Peaceful energy.</div>
+        </button>
+
+        <button class="tile" data-mode="normal">
+          <div class="tileTitle">😏 Regular Ghetto</div>
+          <div class="tileBody">Quick lanes. Windows down. “We almost there.”</div>
+        </button>
+
+        <button class="tile" data-mode="chaos">
+          <div class="tileTitle">😭 Certified Chaos</div>
+          <div class="tileBody">Sudden U-turns. Loud adlibs. You holding the drink.</div>
+        </button>
+
+        <button class="tile" data-mode="vip">
+          <div class="tileTitle">👑 VIP Passenger</div>
+          <div class="tileBody">You get aux privileges (maybe). Complimentary jokes.</div>
+        </button>
+      </div>
+
+      <div class="row">
+        <button class="btn ghost" data-back="name">Back</button>
+        <button class="btn primary" id="toPayment" disabled>Next</button>
+      </div>
+    </section>
+
+    <!-- Screen: Rules -->
+    <section class="card screen" data-screen="rules">
+      <h2>Rules of the Ghetto Car 📜</h2>
+
+      <p class="lead">
+        If you agree, look at the camera and say: <strong>"I accept my fate."</strong> 😭
+      </p>
+
+      <ul class="list" id="rulesList">
+        <!-- filled by JS -->
+      </ul>
+
+      <div class="row">
+        <button class="btn ghost" data-back="welcome">Back</button>
+        <button class="btn primary" data-next="name">Continue</button>
+      </div>
+    </section>
+
+    <!-- Screen: Payment -->
+    <section class="card screen" data-screen="payment">
+      <h2>Payment method 💳🍟</h2>
+      <p class="lead">Pick how you’re paying.</p>
+
+      <div class="grid">
+        <button class="tile pay" data-pay="snacks">
+          <div class="tileTitle">🍿 Snacks</div>
+          <div class="tileBody">Chips, candy, fries… anything crunchy.</div>
+        </button>
+
+        <button class="tile pay" data-pay="food">
+          <div class="tileTitle">🍕 Food</div>
+          <div class="tileBody">Pizza, tacos, plates… I accept blessings.</div>
+        </button>
+
+        <button class="tile pay" data-pay="cash">
+          <div class="tileTitle">💵 Cash</div>
+          <div class="tileBody">Dollars. The universal language.</div>
+        </button>
+
+        <button class="tile pay" data-pay="goodvibes">
+          <div class="tileBody">Laughs, compliments, and no backseat driving.</div>
+        </button>
+      </div>
+
+      <div class="row">
+        <button class="btn ghost" data-back="mode">Back</button>
+        <button class="btn primary" id="toSummary" disabled>Finish</button>
+      </div>
+    </section>
+
+    <!-- Screen: Summary -->
+    <section class="card screen" data-screen="summary">
+      <h2>Receipt 🧾</h2>
+      <p class="lead" id="summaryGreeting"></p>
+
+      <div class="summaryBox">
+        <div class="summaryRow"><span>Mode</span><strong id="sumMode"></strong></div>
+        <div class="summaryRow"><span>Rules unlocked</span><strong id="sumRules"></strong></div>
+        <div class="summaryRow"><span>Payment</span><strong id="sumPay"></strong></div>
+      </div>
+
+
+      <div class="row">
+        <button class="btn ghost" id="restart">Restart</button>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <small>Made for laughs. Don’t text and drive. ❤️</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
